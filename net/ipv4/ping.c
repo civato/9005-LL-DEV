@@ -889,12 +889,22 @@ int ping_recvmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg,
 =======
 		struct sockaddr_in *sin = (struct sockaddr_in *)msg->msg_name;
 
+<<<<<<< HEAD
 		sin->sin_family = AF_INET;
 		sin->sin_port = 0 /* skb->h.uh->source */;
 		sin->sin_addr.s_addr = ip_hdr(skb)->saddr;
 		memset(sin->sin_zero, 0, sizeof(sin->sin_zero));
 		*addr_len = sizeof(*sin);
 >>>>>>> 065c2d4... inet: prevent leakage of uninitialized memory to user in recv syscalls
+=======
+		if (sin) {
+			sin->sin_family = AF_INET;
+			sin->sin_port = 0 /* skb->h.uh->source */;
+			sin->sin_addr.s_addr = ip_hdr(skb)->saddr;
+			memset(sin->sin_zero, 0, sizeof(sin->sin_zero));
+			*addr_len = sizeof(*sin);
+		}
+>>>>>>> 570272f8... ping: prevent NULL pointer dereference on write to msg_name
 
 		if (isk->cmsg_flags)
 			ip_cmsg_recv(msg, skb);
@@ -923,6 +933,7 @@ int ping_recvmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg,
 		struct sockaddr_in6 *sin6 =
 			(struct sockaddr_in6 *)msg->msg_name;
 
+<<<<<<< HEAD
 		sin6->sin6_family = AF_INET6;
 		sin6->sin6_port = 0;
 		sin6->sin6_addr = ip6->saddr;
@@ -935,6 +946,21 @@ int ping_recvmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg,
 							  IP6CB(skb)->iif);
 		*addr_len = sizeof(*sin6);
 >>>>>>> 065c2d4... inet: prevent leakage of uninitialized memory to user in recv syscalls
+=======
+		if (sin6) {
+			sin6->sin6_family = AF_INET6;
+			sin6->sin6_port = 0;
+			sin6->sin6_addr = ip6->saddr;
+			sin6->sin6_flowinfo = 0;
+			if (np->sndflow)
+				sin6->sin6_flowinfo =
+					*(__be32 *)ip6 & IPV6_FLOWINFO_MASK;
+			sin6->sin6_scope_id =
+				ipv6_iface_scope_id(&sin6->sin6_addr,
+						    IP6CB(skb)->iif);
+			*addr_len = sizeof(*sin6);
+		}
+>>>>>>> 570272f8... ping: prevent NULL pointer dereference on write to msg_name
 
 		if (inet6_sk(sk)->rxopt.all)
 			pingv6_ops.datagram_recv_ctl(sk, msg, skb);
