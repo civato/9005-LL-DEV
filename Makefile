@@ -26,6 +26,7 @@ PATCHLEVEL = 4
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 SUBLEVEL = 39
 EXTRAVERSION =~CivZ-Lollipop_Xplorer-Rev3.3-N9005~
 =======
@@ -105,6 +106,9 @@ SUBLEVEL = 74
 =======
 SUBLEVEL = 75
 >>>>>>> 8d5f133... Linux 3.4.75
+=======
+SUBLEVEL = 76
+>>>>>>> 5a8c800... Linux 3.4.76
 EXTRAVERSION =
 >>>>>>> 223083a... Linux 3.4.1
 NAME = Saber-toothed Squirrel
