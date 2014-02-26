@@ -27,6 +27,7 @@
 #include <mach/sec_debug.h>
 #endif
 
+<<<<<<< HEAD
 #define PMIC_VER_8941           0x01
 #define PMIC_VERSION_REG        0x0105
 #define PMIC_VERSION_REV4_REG   0x0103
@@ -40,8 +41,9 @@
 #endif
 
 #ifdef CONFIG_ARCH_MSM8226  //should be removed
+=======
+>>>>>>> 10025e4... Make it compile with CONFIG_SEC_DEBUG disabled.
 extern struct class *sec_class;
-#endif
 
 /* Common PNP defines */
 #define QPNP_PON_REVISION2(base)		(base + 0x01)
