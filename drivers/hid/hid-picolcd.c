@@ -2371,7 +2371,11 @@ static int picolcd_raw_event(struct hid_device *hdev,
 		return 1;
 
 	if (size > 64) {
+<<<<<<< HEAD
 		hid_warn(hdev, "invalid size value(%d) for picolcd raw event\n",
+=======
+		hid_warn(hdev, "invalid size value (%d) for picolcd raw event\n",
+>>>>>>> fd2d711... Linux 3.4.104
 				size);
 		return 0;
 	}
