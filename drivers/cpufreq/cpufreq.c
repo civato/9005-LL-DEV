@@ -2068,7 +2068,11 @@ static int __cpufreq_set_policy(struct cpufreq_policy *data,
 	blocking_notifier_call_chain(&cpufreq_policy_notifier_list,
 			CPUFREQ_NOTIFY, policy);
 
+<<<<<<< HEAD
 	if (policy->cpu >= 1) {
+=======
+	if (policy->cpu) {
+>>>>>>> ee1b3d4... Correct governor change on all cores @ imoseyon
 		cpu0_policy = __cpufreq_cpu_get(0,0);
 		data->min = cpu0_policy->min;
 		data->max = cpu0_policy->max;
@@ -2096,7 +2100,11 @@ static int __cpufreq_set_policy(struct cpufreq_policy *data,
 				__cpufreq_governor(data, CPUFREQ_GOV_STOP);
 
 			/* start new governor */
+<<<<<<< HEAD
 			if (policy->cpu >= 1 && cpu0_policy) {
+=======
+			if (policy->cpu && cpu0_policy) {
+>>>>>>> ee1b3d4... Correct governor change on all cores @ imoseyon
 				data->governor = cpu0_policy->governor;
 			} else {
 				data->governor = policy->governor;
