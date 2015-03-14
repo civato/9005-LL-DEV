@@ -63,6 +63,7 @@ PATCHLEVEL = 4
 <<<<<<< HEAD
 <<<<<<< HEAD
 SUBLEVEL = 39
+<<<<<<< HEAD
 EXTRAVERSION =~CivZ-Lollipop_Xplorer-Rev3.3-N9005~
 =======
 SUBLEVEL = 1
@@ -251,6 +252,9 @@ SUBLEVEL = 110
 >>>>>>> 4cb5321... Linux 3.4.110
 EXTRAVERSION =
 >>>>>>> 223083a... Linux 3.4.1
+=======
+EXTRAVERSION =~CivZ-Lollipop_Xplorer-Rev3.5-N9005~
+>>>>>>> bc6bfa1... Make ready to compile without debugging and sec_debugging
 NAME = Saber-toothed Squirrel
 
 # *DOCUMENTATION*

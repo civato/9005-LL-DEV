@@ -40,9 +40,12 @@
 	static int check_pkey_press;
 #endif
 
+<<<<<<< HEAD
 #ifdef CONFIG_ARCH_MSM8226  //should be removed
 =======
 >>>>>>> 10025e4... Make it compile with CONFIG_SEC_DEBUG disabled.
+=======
+>>>>>>> bc6bfa1... Make ready to compile without debugging and sec_debugging
 extern struct class *sec_class;
 
 /* Common PNP defines */
